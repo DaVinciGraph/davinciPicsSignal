@@ -60,7 +60,7 @@ const signalDavinciPics = async <T extends DPSignalTokenTypes>(
 				break;
 		}
 	} catch (error: any) {
-		console.error(`DavinciPics Error: ${error.message}`);
+		console.error(`DavinciPicsSignal Error: ${error.message}`);
 	}
 };
 
