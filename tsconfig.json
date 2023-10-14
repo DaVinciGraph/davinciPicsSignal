@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "ESNext", // Will not transpile down
+		"module": "CommonJS",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"outDir": "./dist",
+		"declaration": true
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
+}
