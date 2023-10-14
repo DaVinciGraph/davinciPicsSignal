@@ -28,6 +28,8 @@ Clone the repository and copy the `src/signal.ts` file to your project.
 
 Clone the repository, execute `npm run build:es` command, and copy the `dist/signal.js` file to your project.
 
+> **Don't forget to set your API key. If you don't have one, you can contact us via our Discord server.**
+
 # Usage
 
 Demonstrating how to signal different kind of tokens to DavinciPics:
