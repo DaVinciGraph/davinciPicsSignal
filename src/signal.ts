@@ -44,7 +44,7 @@ const DavinciPicsApiUrl = `https://davincigraph.art/api/v1/tokens`;
  * example5: (liquidity) {type: "LP", network: "hedera", address: "0.0.1080216", title: "USDC - HBAR", token0: {network: "hedera", address: "0.0.456858"}, token1: {network: "hedera", address: "0.0.1062664"}}
  * @param args
  */
-const signalDavinciPics = async <T extends DPSignalTokenTypes>(
+export const signalDavinciPics = async <T extends DPSignalTokenTypes>(
 	args: T extends "TOKEN" ? DPSignalForeignToken : T extends "LP" ? DPSignalLPToken : T extends "WRAPPED" ? DPSignalWrappedToken : never
 ) => {
 	try {
@@ -70,7 +70,7 @@ const signalDavinciPics = async <T extends DPSignalTokenTypes>(
  * example2: (adding a currency) {network: "Ethereum", address: "ETH", title: "Ethereum"} // this is unnecessary since the currencies are already added
  * @param args {DPSignalForeignToken}
  */
-const signalForeignToken = async ({ network, address, title }: DPSignalForeignToken) => {
+export const signalForeignToken = async ({ network, address, title }: DPSignalForeignToken) => {
 	if (network.toLowerCase() === "hedera") {
 		throw new Error("Apps are not allowed to add common hedera tokens, only LP or WRAPPED");
 	}
@@ -88,7 +88,7 @@ const signalForeignToken = async ({ network, address, title }: DPSignalForeignTo
  * example2:(wrapping of a currency from the same network) {network: "Ethereum", address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", title: "Wrapped ETH", originalToken: {network: "Ethereum", address: "ETH"}}
  * @param args {DPSignalWrappedToken}
  */
-const signalWrappedToken = async ({ network, address, originalToken, title }: DPSignalWrappedToken) => {
+export const signalWrappedToken = async ({ network, address, originalToken, title }: DPSignalWrappedToken) => {
 	try {
 		await singalRequest(network, address, { type: "WRAPPED", originalToken, title });
 	} catch (error: any) {
@@ -101,7 +101,7 @@ const signalWrappedToken = async ({ network, address, originalToken, title }: DP
  * example: {network: "hedera", address: "0.0.1080216", title: "USDC - HBAR", token0: {network: "hedera", address: "0.0.456858"}, token1: {network: "hedera", address: "0.0.1062664"}}
  * @param args {DPSignalLPToken}
  */
-const signalLiquidityToken = async ({ network, address, token0, token1, title }: DPSignalLPToken) => {
+export const signalLiquidityToken = async ({ network, address, token0, token1, title }: DPSignalLPToken) => {
 	try {
 		await singalRequest(network, address, { type: "LP", token0, token1, title });
 	} catch (error: any) {
